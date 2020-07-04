@@ -136,7 +136,35 @@
  //}
 
 
- #include <Bounce2.h>
+//#include <Bounce2.h>
+//#define NUM_BUTTONS 1
+//int MotorPin2 = 2;
+//int MotorPin3 = 3;
+//void setup() 
+//{
+  //for (int i = 0; i < NUM_BUTTONS; i++) {
+  //buttons[i].attach( BUTTON_PINS[i] , INPUT_PULLUP );
+  //pinMode(MotorPin2, OUTPUT);
+  //pinMode(MotorPin3, OUTPUT);
+  //Serial.begin(9600);
+  //buttons[i].interval(50);  
+//}
+//void loop() 
+//{
+  //for (int i = 0; i < NUM_BUTTONS; i++)  {
+  //buttons[i].update();
+  //bool button_state = buttons[i].read();
+  //if(last_button_state > button_state) {
+  //Serial.println("Falling edge");
+  //digitalWrite(MotorPin2, HIGH);
+  //digitalWrite(MotorPin3, LOW);
+  //for (int x = 0; x < 100; x+20) {
+ //}
+  //last_button_state = button_state;
+//}
+
+
+#include <Bounce2.h>
 #define NUM_BUTTONS 1
 int MotorPin2 = 2;
 int MotorPin3 = 3;
@@ -158,6 +186,9 @@ void loop()
   Serial.println("Falling edge");
   digitalWrite(MotorPin2, HIGH);
   digitalWrite(MotorPin3, LOW);
+  for (int x = 0; x < 100; x+20) {
+  digitalWrite(MotorPin2, LOW);
+  digitalWrite(MotorPin3, HIGH);
   for (int x = 0; x < 100; x+20) {
  }
   last_button_state = button_state;
