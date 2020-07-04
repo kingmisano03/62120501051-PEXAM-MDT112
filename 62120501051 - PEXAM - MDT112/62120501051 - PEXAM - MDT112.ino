@@ -194,8 +194,47 @@
   //last_button_state = button_state;
 //}
 
+//#include <Bounce2.h>
+//#define NUM_BUTTONS 1
+//int MotorPin2 = 2;
+//int MotorPin3 = 3;
+//LiquidCrystal lcd(12, 11, 5, 4, 3, 2); 
+//void setup() 
+//{
+  //for (int i = 0; i < NUM_BUTTONS; i++) {
+  //buttons[i].attach( BUTTON_PINS[i] , INPUT_PULLUP );
+  //pinMode(MotorPin2, OUTPUT);
+  //pinMode(MotorPin3, OUTPUT);
+  //Serial.begin(9600);
+  //lcd.begin(16, 2); 
+  //lcd.print(" Speed ( A %) ") (A = int x);  
+  //buttons[i].interval(50);  
+//}
+//void loop() 
+//{
+  //for (int i = 0; i < NUM_BUTTONS; i++)  {
+  //buttons[i].update();
+  //bool button_state = buttons[i].read();
+  //if(last_button_state > button_state) {
+  //Serial.println("Falling edge");
+ // digitalWrite(MotorPin2, HIGH);
+  //digitalWrite(MotorPin3, LOW);
+  //for (int x = 0; x < 100; x+20) {
+  //digitalWrite(MotorPin2, LOW);
+  //digitalWrite(MotorPin3, HIGH);
+  //for (int x = 0; x < 100; x+20) {
+  //lcd.setCursor(0, 0);
+  //lcd.print(" Speed (A %)")( A = int x) ;
+  //lcd.setCursor(0, 1);
+  //lcd.print(" void loop(){ ");
+ //}
+  //last_button_state = button_state;
+//}
+
+
 #include <Bounce2.h>
 #define NUM_BUTTONS 1
+const int buzzer = 9;
 int MotorPin2 = 2;
 int MotorPin3 = 3;
 LiquidCrystal lcd(12, 11, 5, 4, 3, 2); 
@@ -206,6 +245,7 @@ void setup()
   pinMode(MotorPin2, OUTPUT);
   pinMode(MotorPin3, OUTPUT);
   Serial.begin(9600);
+  pinMode(buzzer, OUTPUT);
   lcd.begin(16, 2); 
   lcd.print(" Speed ( A %) ") (A = int x);  
   buttons[i].interval(50);  
@@ -217,6 +257,9 @@ void loop()
   bool button_state = buttons[i].read();
   if(last_button_state > button_state) {
   Serial.println("Falling edge");
+  tone(buzzer, 800); 
+  delay(250);        
+  noTone(buzzer);    
   digitalWrite(MotorPin2, HIGH);
   digitalWrite(MotorPin3, LOW);
   for (int x = 0; x < 100; x+20) {
